@@ -1,0 +1,553 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MAGASIN.Master.cs" Inherits="fsmGESTION.magasin" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc2" %>
+
+<html lang="en" class="no-js">
+	<!--<![endif]-->
+	<!-- start: HEAD -->
+    	<link rel="shortcut icon" href="http://www.sabenatechnics.com/wp-content/uploads/2016/04/favicon.png" type="image/png" />
+<head id="Head1" runat="server">
+   
+   
+
+
+
+
+		<title>Sabena Technics MIR</title>
+     <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+        
+    
+		<!-- start: META -->
+		<meta charset="utf-8" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta content="" name="description" />
+		<meta content="" name="author" />
+		<!-- end: META -->
+		<!-- start: MAIN CSS -->
+		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/fonts/style.css">
+		<link rel="stylesheet" href="assets/css/main.css">
+		<link rel="stylesheet" href="assets/css/main-responsive.css">
+		<link rel="stylesheet" href="assets/plugins/iCheck/skins/all.css">
+		<link rel="stylesheet" href="assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
+		<link rel="stylesheet" href="assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css">
+		<link rel="stylesheet" href="assets/css/theme_light.css" type="text/css" id="skin_color">
+		<link rel="stylesheet" href="assets/css/print.css" type="text/css" media="print"/>
+    		<link rel="stylesheet" href="assets/plugins/ladda-bootstrap/dist/ladda-themeless.min.css">
+		<link rel="stylesheet" href="assets/plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
+		<link rel="stylesheet" href="assets/plugins/bootstrap-social-buttons/social-buttons-3.css">
+
+       
+   <link rel="stylesheet" href="assets/plugins/select2/select2.css">
+		<link rel="stylesheet" href="assets/plugins/datepicker/css/datepicker.css">
+		<link rel="stylesheet" href="assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
+		<link rel="stylesheet" href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css">
+		<link rel="stylesheet" href="assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css">
+		<link rel="stylesheet" href="assets/plugins/jQuery-Tags-Input/jquery.tagsinput.css">
+		<link rel="stylesheet" href="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
+		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
+
+		<link rel="stylesheet" href="assets/plugins/DataTables/media/css/DT_bootstrap.css" />
+
+    
+
+       
+
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link rel="shortcut icon" href="favicon.ico" />
+		<!--[if IE 7]>
+		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<!-- end: MAIN CSS -->
+		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link rel="shortcut icon" href="favicon.ico" />
+	</head>
+	<!-- end: HEAD -->
+	<!-- start: BODY -->
+	<body>
+          <form id="form1" runat="server">
+ 
+		<!-- start: HEADER -->
+		<div  class="navbar navbar-inverse navbar-fixed-top">
+			<!-- start: TOP NAVIGATION CONTAINER -->
+			<div class="container">
+				<div class="navbar-header" >
+					<!-- start: RESPONSIVE MENU TOGGLER -->
+					<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+						<span class="clip-list-2"></span>
+					</button>
+					<!-- end: RESPONSIVE MENU TOGGLER -->
+					<!-- start: LOGO -->
+					<a class="navbar-brand" href="#">
+				<asp:Image ID="Image1" runat="server" Height="30px" width="90px" ImageUrl="~/image/sabenawhite.png" />
+					</a>
+                    
+					<!-- end: LOGO -->
+				</div>
+				<div class="navbar-tools">
+					<!-- start: TOP NAVIGATION MENU -->
+					<ul class="nav navbar-right">
+						<!-- start: TO-DO DROPDOWN -->
+					
+						<!-- end: TO-DO DROPDOWN-->
+						<!-- start: NOTIFICATION DROPDOWN -->
+
+                        <li class="dropdown">
+							<a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+								<i class="clip-notification-2"></i>
+								<span class="badge"> <asp:Label ID="nonotification" runat="server" Text="0"></asp:Label>
+
+								</span>
+							</a>
+							<ul class="dropdown-menu notifications">
+								<li>
+									<span class="dropdown-menu-title">Notifications</span>
+								</li>
+								<li>
+									<div class="drop-down-wrapper ps-container">
+										<ul>
+
+                                            <asp:Panel ID="Panel1" Visible="false" runat="server">
+											 <li>
+										<a href="Listetalonage.aspx"><i class="fa  fa-thumbs-down"></i>
+								<span class="label label-danger">
+                                    
+                                 vérifier les outils non étalonnés </span>
+								<span class="selected"></span>
+							</a>
+                                                 </li>
+										</asp:Panel>
+									
+										    <asp:Panel ID="Panel2" Visible="false" runat="server">
+									
+
+                                                       <li>
+										<a href="listeMouvement.aspx"><i class="fa  clip-redo"></i>
+								<span class="label label-warning">vérifier les outils non Retourné </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+										</asp:Panel>
+										
+										
+										</ul>
+									<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px; width: 270px; display: none;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 250px; display: inherit;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
+								</li>
+								
+							</ul>
+						</li>
+					
+						<!-- end: NOTIFICATION DROPDOWN -->
+						<!-- start: MESSAGE DROPDOWN -->
+					
+						<!-- end: MESSAGE DROPDOWN -->
+						<!-- start: USER DROPDOWN -->
+						<li class="dropdown current-user">
+							<a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+								<img src="assets/images/avatar-1-small.jpg"  width="30" height="30"  class="circle-img" alt="">
+								<span class="username">   <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> </span>
+								<i class="clip-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="">
+										<i class="clip-user-2"></i>
+										&nbsp;Mon Profile
+									</a>
+								</li>
+							
+                                	<li class="divider"></li>
+								<li>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" OnClick="deconx">
+								
+										<i class="clip-exit"></i>
+										&nbsp;D&eacute;connexion
+									</asp:LinkButton>
+								</li>
+
+							</ul>
+						</li>
+						<!-- end: USER DROPDOWN -->
+					</ul>
+					<!-- end: TOP NAVIGATION MENU -->
+				</div>
+			</div>
+			<!-- end: TOP NAVIGATION CONTAINER -->
+		</div>
+		<!-- end: HEADER -->
+		<!-- start: MAIN CONTAINER -->
+		<div class="main-container">
+			<div class="navbar-content">
+				<!-- start: SIDEBAR -->
+				<div class="main-navigation navbar-collapse collapse">
+					<!-- start: MAIN MENU TOGGLER BUTTON -->
+					<div class="navigation-toggler">
+						<i class="clip-chevron-left"></i>
+						<i class="clip-chevron-right"></i>
+					</div>
+					<!-- end: MAIN MENU TOGGLER BUTTON -->
+					<!-- start: MAIN NAVIGATION MENU -->
+					<ul class="main-navigation-menu">
+	
+
+<li>
+                <a href="javascript:void(0)"><i class="fa  fa-exchange"></i>
+								<span class="title">Mouvement outillage </span><i class="icon-arrow"></i>
+								<span class="selected"></span>
+							</a>
+                           
+                            <ul class="sub-menu">
+								
+                                <li>
+										<a href="SortieOutillage.aspx"><i class="fa  clip-redo"></i>
+								<span class="title">Sortie outillage </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                                  <li>
+										<a href="listeMouvement.aspx"><i class="fa  clip-undo"></i>
+								<span class="title">retour outillage </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                               
+                                          <li>
+										<a href="RetourMouvement.aspx"><i class="fa clip-stack"></i>
+								<span class="title">Liste des mouvements </span>
+								<span class="selected"></span>
+							</a> 
+								</li>
+							</ul>
+    </li>
+
+                                       <li>
+                        <a href="javascript:void(0)"><i class="fa fa-shopping-cart"></i>
+								<span class="title">gestion Consomables </span><i class="icon-arrow"></i>
+								<span class="selected"></span>
+							</a>
+                           
+                            <ul class="sub-menu">
+
+                                         <li>
+										<a href="listeconsomable.aspx"><i class="fa  clip-redo"></i>
+								<span class="title">Sortie Article </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                                  <li>
+										<a href="alimenarticle.aspx"><i class="fa  clip-undo"></i>
+								<span class="title">Alimentation stock Article </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+
+								
+                                <li>
+										<a href="addarticle.aspx"><i class="fa  fa-plus"></i>
+								<span class="title">Ajouter un nouveau Article </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                                  <li>
+										<a href="listesortiearticle.aspx"><i class="fa fa-eye"></i>
+								<span class="title">consulter les mouvement </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+
+                            
+           
+                               
+							</ul>
+          </li>
+                        <li>
+					
+								  <a href="javascript:void(0)"><i class="fa clip-wrench"></i>
+								<span class="title"> Liste des outillages </span><i class="icon-arrow"></i>
+							
+							</a>
+                           
+                            <ul class="sub-menu">
+								
+                                <li>
+										<a href="ajoutoutil.aspx"><i class="fa   clip-plus-circle-2 "></i>
+								<span class="title">Ajout des outillages </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                              
+                                  <li>
+										<a href="ListOutillage.aspx"><i class="fa   fa clip-wrench "></i>
+								<span class="title">Liste des outillages </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                           
+     <li>
+										<a href=" Listetalonage.aspx"><i class="fa   fa fa-thumbs-down "></i>
+								<span class="title">Liste outils expirants </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                               
+							</ul>
+                             </li>
+
+                             <li>
+					
+								  <a href="javascript:void(0)"><i class="fa    clip-users"></i>
+								<span class="title"> Liste des Mécaniciens </span><i class="icon-arrow"></i>
+							
+							</a>
+                           
+                            <ul class="sub-menu">
+								
+                                <li>
+										<a href="addMeca.aspx"><i class="fa   clip-user-plus "></i>
+								<span class="title">Ajouter un Mecanicien </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                              
+                                  <li>
+										<a href="ListMeca.aspx"><i class="fa  clip-users "></i>
+								<span class="title">Liste des Mecaniciens </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                                  
+                           
+							</ul>
+                             </li>
+
+
+                         <li>
+					
+								  <a href="javascript:void(0)"><i class="fa   clip-tree-2"></i>
+								<span class="title"> Liste des Avions </span><i class="icon-arrow"></i>
+							
+							</a>
+                           
+                            <ul class="sub-menu">
+								
+                                <li>
+										<a href="addAvion.aspx"><i class="fa  clip-tree-2"></i>
+								<span class="title">Ajouter un Avion </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                              
+                                  <li>
+										<a href="ajoutavion.aspx"><i class="fa fa-fighter-jet"></i>
+								<span class="title">Liste des avions </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                                  
+                           
+							</ul>
+                             </li>
+
+                        
+                                       <li>
+                        <a href="javascript:void(0)"><i class="fa fa-gears"></i>
+								<span class="title">gestion Consomables </span><i class="icon-arrow"></i>
+								<span class="selected"></span>
+							</a>
+                           
+                            <ul class="sub-menu">
+
+                       								
+                                <li>
+										<a href="addarticle.aspx"><i class="fa  fa-plus"></i>
+								<span class="title">Ajouter un nouveau Article </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+                                  <li>
+										<a href="Consultarticle.aspx"><i class="fa fa-gear"></i>
+								<span class="title">Gestion Article </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+
+                                    <li>
+										<a href="DA_AUTO.aspx"><i class="fa clip-cart"></i>
+								<span class="title">Demande d'achat </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+           
+                               
+							</ul>
+          </li>
+           
+                       
+                                    <li>
+                        <a href="javascript:void(0)"><i class="fa clip-stats "></i>
+								<span class="title">Statistique </span><i class="icon-arrow"></i>
+								<span class="selected"></span>
+							</a>
+                           
+                            <ul class="sub-menu">
+								
+                                <li>
+										<a href="stat.aspx"><i class="fa  fa-bar-chart-o"></i>
+								<span class="title">Statistique </span>
+								<span class="selected"></span>
+							</a>
+								</li>
+   
+							</ul>
+          </li>
+
+
+
+					</ul>
+					<!-- end: MAIN NAVIGATION MENU -->
+				</div>
+				<!-- end: SIDEBAR -->
+			</div>
+			<!-- start: PAGE -->
+			<div class="main-content">
+				<!-- start: PANEL CONFIGURATION MODAL FORM -->
+			<!-- /.modal -->
+				<!-- end: SPANEL CONFIGURATION MODAL FORM -->
+				<div class="container">
+					<!-- start: PAGE HEADER -->
+					<div class="row">
+						<div class="col-sm-12">
+							<!-- start: STYLE SELECTOR BOX -->
+						<!-- end: STYLE SELECTOR BOX -->
+							<!-- start: PAGE TITLE & BREADCRUMB -->
+							<ol class="breadcrumb">
+								<li>
+									<i class="clip-home-3"></i>
+									<a href="#">
+										Home
+									</a>
+								</li>
+								<li class="active">
+                                    <asp:Label ID="PAGETXT" runat="server" Text="Label"></asp:Label>
+								</li>
+								<li class="search-box">
+									<form class="sidebar-search">
+										<div class="form-group">
+											
+										</div>
+									</form>
+								</li>
+							</ol>
+							<div class="page-header">
+								
+                                 <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+ 
+
+    
+                 
+        </asp:ContentPlaceHolder>
+
+							</div>
+							<!-- end: PAGE TITLE & BREADCRUMB -->
+						</div>
+					</div>
+					<!-- end: PAGE HEADER -->
+					<!-- start: PAGE CONTENT -->
+
+ <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+              
+                 
+       
+        </asp:ContentPlaceHolder>
+ 
+					<!-- end: PAGE CONTENT-->
+				</div>
+			</div>
+			<!-- end: PAGE -->
+		</div>
+		<!-- end: MAIN CONTAINER -->
+		<!-- start: FOOTER -->
+		<div class="footer clearfix">
+			<div class="footer-inner">
+				2019 &copy; SABENA Technics MIR.
+			</div>
+			<div class="footer-items">
+				<span class="go-top"><i class="clip-chevron-up"></i></span>
+			</div>
+		</div>
+		<!-- end: FOOTER -->
+		<!-- start: MAIN JAVASCRIPTS -->
+		<!--[if lt IE 9]>
+		<script src="assets/plugins/respond.min.js"></script>
+		<script src="assets/plugins/excanvas.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<![endif]-->
+		<!--[if gte IE 9]><!-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<!--<![endif]-->
+		<script src="assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+		<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+		<script src="assets/plugins/blockUI/jquery.blockUI.js"></script>
+		<script src="assets/plugins/iCheck/jquery.icheck.min.js"></script>
+		<script src="assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js"></script>
+		<script src="assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js"></script>
+		<script src="assets/plugins/less/less-1.5.0.min.js"></script>
+		<script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+		<script src="assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js"></script>
+		<script src="assets/js/main.js"></script>
+		<!-- end: MAIN JAVASCRIPTS -->
+		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
+		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>
+		<script src="assets/plugins/select2/select2.min.js"></script>
+		<script src="assets/plugins/jquery.maskedinput/src/jquery.maskedinput.js"></script>
+		<script src="assets/plugins/jquery-maskmoney/jquery.maskMoney.js"></script>
+		<script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+		<script src="assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+		<script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+		<script src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+		<script src="assets/plugins/bootstrap-colorpicker/js/commits.js"></script>
+		<script src="assets/plugins/jQuery-Tags-Input/jquery.tagsinput.js"></script>
+		<script src="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+		<script src="assets/plugins/summernote/build/summernote.min.js"></script>
+		<script src="assets/plugins/ckeditor/ckeditor.js"></script>
+		<script src="assets/plugins/ckeditor/adapters/jquery.js"></script>
+		<script src="assets/js/form-elements.js"></script>
+
+      
+
+
+              
+            	<script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/DataTables/media/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/DataTables/media/js/DT_bootstrap.js"></script>
+		<script src="assets/js/table-data.js"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+	
+
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script>
+		  
+		    jQuery(document).ready(function () {
+		        Main.init();
+		        FormElements.init();
+   
+		    });
+		   
+		
+		</script>
+
+              
+
+              </form>
+	</body>
+	<!-- end: BODY -->
+</html>
+  
